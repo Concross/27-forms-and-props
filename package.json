@@ -4,7 +4,11 @@
   "description": "React lab for forms and props",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "postinstall": "npm run build",
+    "lint": "eslint **/*.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +22,8 @@
   "homepage": "https://github.com/Concross/27-forms-and-props#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -41,6 +45,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "dotenv": "^6.1.0"
+    "dotenv": "^6.1.0",
+    "superagent": "^4.0.0-beta.5"
   }
 }
