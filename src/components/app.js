@@ -21,6 +21,10 @@ class App extends React.Component {
   render() {
     return (
       // JSX
+      <main>
+        <SearchForm />
+        <SearchResultList />
+      </main>
     );
   }
 }
