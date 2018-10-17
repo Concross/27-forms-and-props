@@ -18,7 +18,7 @@ class ResultList extends React.Component {
           {this.props.results.map((post, i) => {
             return (
               <li key={i}>
-                <a href={'www.' + post.data.domain + post.data.permalink}>
+                <a href={post.data.url}>
                   <h1>{post.data.title}</h1>
                   <p>{post.data.ups}</p>
                 </a>
