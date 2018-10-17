@@ -26,7 +26,10 @@ class App extends React.Component {
     return this.fetchData(url)
       .then(posts => {
         console.log('fetching data');
-        this.setState({ results: posts.data.children });
+        this.setState({
+          results: posts.data.children,
+          error: false,
+        });
       })
       .catch(err => {
         this.setState({ error: true });
@@ -35,10 +38,8 @@ class App extends React.Component {
 
   fetchData(url) {
     return superagent.get(url)
-      .set('Access-Control-Allow-Origin', 'http://localhost:8080')
-      .set('Access-Control-Allow-Credentials', true)
-      .withCredentials()
       .then(res => {
+        this.setState({ error: false });
         return res.body;
       })
       .catch(err => {
