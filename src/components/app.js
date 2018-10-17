@@ -13,8 +13,8 @@ class App extends React.Component {
 
     this.state = {
       results: [],
+      error: false,
     };
-
 
     this.searchReddit = this.searchReddit.bind(this);
     this.fetchData = this.fetchData.bind(this);
@@ -28,21 +28,28 @@ class App extends React.Component {
         console.log('fetching data');
         this.setState({ results: posts.data.children });
       })
-      .catch(console.error);
+      .catch(err => {
+        this.setState({ error: true });
+      });
   }
 
   fetchData(url) {
     return superagent.get(url)
+      .set('Access-Control-Allow-Origin', 'http://localhost:8080')
+      .set('Access-Control-Allow-Credentials', true)
+      .withCredentials()
       .then(res => {
         return res.body;
       })
-      .catch(console.error);
+      .catch(err => {
+        this.setState({ error: true });
+      });
   }
 
   render() {
     return (
       <main>
-        <SearchForm searchMethod={this.searchReddit} />
+        <SearchForm searchMethod={this.searchReddit} className={this.state.error ? 'searchError' : null} />
         <SearchResultList results={this.state.results} />
       </main>
     );

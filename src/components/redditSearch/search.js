@@ -35,7 +35,7 @@ class Search extends React.Component {
   render() {
     return (
       <div className="redditSearch">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className={this.props.className}>
           <input onChange={this.handleSearch} value={this.state.search} placeholder="Search..." />
           <input onChange={this.handleLimit} value={this.state.limit} type="number" min="0" max="100" />
           <input type="submit" value="Search" />

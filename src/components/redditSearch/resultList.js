@@ -13,7 +13,10 @@ class ResultList extends React.Component {
   render() {
     return (
       <div className="redditResultList">
+        <h1>Results</h1>
+        <ul>
 
+        </ul>
       </div>
     );
   }
