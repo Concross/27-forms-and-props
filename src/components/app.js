@@ -50,7 +50,7 @@ class App extends React.Component {
   render() {
     return (
       <main>
-        <SearchForm searchMethod={this.searchReddit} className={this.state.error ? 'searchError' : null} />
+        <SearchForm searchMethod={this.searchReddit} className={this.state.error ? 'searchError' : ''} />
         <SearchResultList results={this.state.results} />
       </main>
     );
